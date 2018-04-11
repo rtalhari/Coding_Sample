@@ -91,7 +91,7 @@ namespace CompanyA.AssignCustomerToCreditMemo.Workflow
                 if (customerNumber != null)
                 {
                     //Check for account by Serial Number
-                    EntityCollection accountEntities = GetaccountByCustomerNumber(customerNumber, service);
+                    EntityCollection accountEntities = GetAccountByCustomerNumber(customerNumber, service);
 
                     foreach (var accountEntity in accountEntities.Entities)
                     {
@@ -121,7 +121,7 @@ namespace CompanyA.AssignCustomerToCreditMemo.Workflow
             tracingService.Trace("Exiting .Execute(), Correlation Id: {0}", context.CorrelationId);
         }
 
-        private EntityCollection GetaccountByCustomerNumber(string accountNumber, IOrganizationService service)
+        private EntityCollection GetAccountByCustomerNumber(string accountNumber, IOrganizationService service)
         {
             string fetchXML = @"<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
                                   <entity name='account'>    
